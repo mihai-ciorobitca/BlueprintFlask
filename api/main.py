@@ -1,10 +1,9 @@
 from flask import Flask, render_template
-from blueprints import home, admin, login
+from api.blueprints import home, admin, login
 import traceback
 from flask_caching import Cache
 
 app = Flask(__name__, template_folder="blueprints/templates")
-app.config['DEBUG'] = True
 cache = Cache(app, config={"CACHE_TYPE": "simple"})
 
 app.register_blueprint(home.home_blueprint)
